@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.mysql:mysql-connector-j'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+//        implementation 'com.h2database:h2' // 임시 DB
+    compileOnly("org.springframework.boot:spring-boot-devtools")
+    // Java Bean Validation API
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+
+    // Hibernate Validator (유효성 검사 구현체)
+    implementation 'org.hibernate:hibernate-validator:6.0.13.Final'
+
+    // Optional: Bean Validation을 위한 JSR 303, JSR 380
+    implementation 'org.glassfish:javax.el:3.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
